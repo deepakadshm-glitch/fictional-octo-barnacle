@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRADING EXPERT - Gujarati Community</title>
+
+    <meta property="og:title" content="Stock Market Analysis - Gujarati Trader">
+    <meta property="og:description" content="Daily Market Updates & Educational Content in Gujarati">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1565983638349659');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1565983638349659&ev=PageView&noscript=1"
+/></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0f19;
+            color: #fff;
+            font-family: 'Noto Sans Gujarati', 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Ambient background glow */
+
+        .bg-glow {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 15% 10%, rgba(0, 230, 118, 0.12), transparent 40%), radial-gradient(circle at 85% 90%, rgba(255, 183, 3, 0.10), transparent 45%), #0b0f19;
+            z-index: -1;
+        }
+
+        /* Top Announcement Bar */
+
+        .top-bar {
+            background: #1e293b;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #cbd5e1;
+            border-bottom: 1px solid #334155;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .top-bar span {
+            color: #00e676;
+            font-weight: 700;
+        }
+
+        /* Main Container */
+
+        .container {
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Profile Section */
+
+        .profile-card {
+            text-align: center;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+            padding: 28px 18px;
+            border-radius: 22px;
+            border: 1px solid #334155;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+        }
+
+        .img-box {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            border: 3px solid #ffb703;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 0 20px rgba(255, 183, 3, 0.4);
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Typography */
+
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .sub {
+            color: #fb8500;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .desc {
+            color: #94a3b8;
+            font-size: 13.5px;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        /* Stats Grid */
+
+        .stats {
+            display: flex;
+            gap: 10px;
+            margin: 22px 0;
+        }
+
+        .box {
+            flex: 1;
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 14px 8px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .box h2 {
+            color: #ffb703;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .box p {
+            font-size: 11px;
+            color: #cbd5e1;
+            margin-top: 3px;
+        }
+
+        /* Main Call to Action Button */
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin: 20px 0 8px;
+            padding: 17px;
+            background: linear-gradient(90deg, #00c853 0%, #00e676 100%);
+            color: #03110a;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(0, 230, 118, 0.35);
+            transition: transform 0.15s, box-shadow 0.15s;
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 24px rgba(0, 230, 118, 0.35);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(0, 230, 118, 0.6);
+            }
+        }
+
+        .fallback-link {
+            display: none;
+            text-align: center;
+            font-size: 12.5px;
+            color: #38bdf8;
+            margin-bottom: 14px;
+        }
+
+        .fallback-link.show {
+            display: block;
+        }
+
+        /* Features / Benefits */
+
+        .points {
+            margin-top: 18px;
+        }
+
+        .point {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #e2e8f0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            transition: border-color 0.2s;
+        }
+
+        .icon {
+            font-size: 19px;
+            flex-shrink: 0;
+        }
+
+        /* Footer / Legal Tabs */
+
+        .legal {
+            margin-top: 28px;
+            font-size: 11px;
+            color: #64748b;
+            line-height: 1.6;
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        .legal a {
+            color: #94a3b8;
+            text-decoration: underline;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .tab {
+            font-size: 12px;
+            color: #64748b;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+            text-decoration: none;
+            font-weight: 600;
+            padding-bottom: 2px;
+        }
+
+        .tab.active {
+            color: #ffb703;
+            border-bottom: 2px solid #ffb703;
+        }
+
+        .info {
+            display: none;
+            text-align: left;
+            padding: 0 4px;
+        }
+
+        .info.active {
+            display: block;
+        }
+
+        @media (max-width:380px) {
+            h1 {
+                font-size: 21px;
+            }
+            .btn {
+                font-size: 14.5px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-glow"></div>
+
+    <div class="top-bar">
+        🚀 <span>ગુજરાતના ટ્રેડર્સ માટે:</span> Daily Nifty & BankNifty Analysis
+    </div>
+
+    <div class="container">
+
+        <div class="profile-card">
+            <div class="img-box">
+                <img src="gj.jpg" alt="Pro Trading Expert">
+            </div>
+            <h1>GUJARATI TRADER</h1>
+            <p class="sub">Market Analyst & Educator</p>
+            <p class="desc">સ્ટોક માર્કેટ શીખો સરળ ગુજરાતી ભાષામાં. સ્ટોક માર્કેટના ડેઇલી અપડેટ્સ માટે જોડાઓ.</p>
+        </div>
+
+        <div class="stats">
+            <div class="box">
+                <h2>6+</h2>
+                <p>વર્ષનો અનુભવ</p>
+            </div>
+            <div class="box">
+                <h2>10K+</h2>
+                <p>સભ્યો</p>
+            </div>
+            <div class="box">
+                <h2>Daily</h2>
+                <p>લાઇવ અપડેટ્સ</p>
+            </div>
+        </div>
+
+        <a href="https://t.me/+jEdWNG0K6ddiZDc9" class="btn tg-join-btn" id="ctaBtn" rel="noopener">
+    🚀 JOIN FREE TELEGRAM (ફ્રી જુઓ)
+  </a>
+
+        <a href="https://t.me/+jEdWNG0K6ddiZDc9" id="fallbackLink" class="fallback-link" rel="noopener">
+    Not redirected? Tap here to join manually →
+  </a>
+
+        <div class="points">
+            <div class="point">
+                <span class="icon">📊</span>
+                <span><strong>ડેઇલી ઇન્ટ્રાડે એનાલિસિસ:</strong> Daily Intraday Levels</span>
+            </div>
+            <div class="point">
+                <span class="icon">📈</span>
+                <span><strong>નિફ્ટી અને બેંકનિફ્ટી:</strong> Nifty & BankNifty Setup</span>
+            </div>
+            <div class="point">
+                <span class="icon">📚</span>
+                <span><strong>ફ્રી લર્નિંગ કન્ટેન્ટ:</strong> Educational Trading Content</span>
+            </div>
+        </div>
+
+        <div class="legal">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('p', this)">Privacy Policy</button>
+                <button class="tab" onclick="showTab('d', this)">Disclaimer</button>
+                <button class="tab" onclick="showTab('t', this)">Terms</button>
+            </div>
+
+            <div class="info active" id="p">
+                અમે એનાલિટિક્સ માટે Meta Pixel નો ઉપયોગ કરીએ છીએ. અમે કોઈ અંગત નાણાકીય માહિતી એકત્રિત કરતા નથી.<br> Ads by <a href="https://t.me/srsagency">SRS Ads</a>
+            </div>
+
+            <div class="info" id="d">
+                <strong>ડીસ્ક્લેમર:</strong> અમે SEBI રજિસ્ટર્ડ નથી. આ પેજ માત્ર શૈક્ષણિક હેતુ (Educational Purpose) માટે છે. ટ્રેડિંગ જોખમી છે, પોતાના જોખમે વેપાર કરો.
+            </div>
+
+            <div class="info" id="t">
+                ભાગ લેવા માટે ઉંમર ૧૮+ હોવી જરૂરી છે. તમામ કન્ટેન્ટ માત્ર લર્નિંગ હેતુ માટે છે.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.TG_CONFIG = {
+            pixelId: "1565983638349659",
+            telegramLink: "https://t.me/+jEdWNG0K6ddiZDc9",
+            eventName: "Lead",
+            minDwellTime: 3000,
+            requireInteraction: true,
+            redirectDelay: 350,
+            webhookUrl: null,
+            debug: false
+        };
+    </script>
+
+    <script>
+        /**
+         * UNIVERSAL TELEGRAM TRACKING SCRIPT (v2)
+         * ----------------------------------------
+         * Filters fake/bot clicks before they count as conversions,
+         * and ensures genuine visitors reliably reach Telegram.
+         */
+        (function() {
+            "use strict";
+
+            var CFG = Object.assign({
+                    pixelId: "",
+                    telegramLink: "",
+                    eventName: "Lead",
+                    minDwellTime: 3000,
+                    requireInteraction: true,
+                    redirectDelay: 350,
+                    webhookUrl: null,
+                    debug: false,
+                },
+                window.TG_CONFIG || {}
+            );
+
+            var pageLoadTime = Date.now();
+            var humanInteracted = false;
+            var hasFired = false;
+            var sessionKey = "tg_fired_" + (CFG.pixelId || "default");
+            var interactionEvents = ["mousemove", "touchstart", "scroll", "keydown", "pointerdown"];
+
+            function log() {
+                if (CFG.debug && window.console) {
+                    console.log.apply(console, ["[TGTrack]"].concat(Array.prototype.slice.call(arguments)));
+                }
+            }
+
+            function onInteract() {
+                humanInteracted = true;
+                interactionEvents.forEach(function(evt) {
+                    window.removeEventListener(evt, onInteract);
+                });
+                log("human interaction detected");
+            }
+            interactionEvents.forEach(function(evt) {
+                window.addEventListener(evt, onInteract, {
+                    passive: true,
+                    once: false
+                });
+            });
+
+            function isLikelyBot() {
+                if (navigator.webdriver) return true;
+                var ua = navigator.userAgent || "";
+                if (/headless|phantomjs|puppeteer|selenium/i.test(ua)) return true;
+                return false;
+            }
+
+            function alreadyFiredThisSession() {
+                try {
+                    return sessionStorage.getItem(sessionKey) === "1";
+                } catch (e) {
+                    return hasFired;
+                }
+            }
+
+            function markFired() {
+                hasFired = true;
+                try {
+                    sessionStorage.setItem(sessionKey, "1");
+                } catch (e) {}
+            }
+
+            function reportFiltered(reason) {
+                log("BLOCKED — reason:", reason);
+                if (CFG.webhookUrl) {
+                    try {
+                        fetch(CFG.webhookUrl, {
+                            method: "POST",
+                            keepalive: true,
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                type: "filtered_click",
+                                reason: reason,
+                                pixelId: CFG.pixelId,
+                                dwell: Date.now() - pageLoadTime,
+                                url: window.location.href,
+                                ts: Date.now(),
+                            }),
+                        }).catch(function() {});
+                    } catch (e) {}
+                }
+            }
+
+            function attemptJoin(evt) {
+                if (evt && evt.preventDefault) evt.preventDefault();
+
+                if (alreadyFiredThisSession()) {
+                    log("duplicate click ignored (already fired this session)");
+                    window.location.href = CFG.telegramLink;
+                    return;
+                }
+
+                var dwell = Date.now() - pageLoadTime;
+
+                if (isLikelyBot()) {
+                    reportFiltered("bot_signature");
+                    return;
+                }
+                if (CFG.requireInteraction && !humanInteracted) {
+                    reportFiltered("no_human_interaction");
+                    return;
+                }
+                if (dwell < CFG.minDwellTime) {
+                    reportFiltered("dwell_too_short:" + dwell + "ms");
+                    return;
+                }
+
+                var eventId =
+                    "tg_" + (CFG.pixelId || "px") + "_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8);
+
+                if (typeof fbq === "function") {
+                    fbq("track", CFG.eventName, {}, {
+                        eventID: eventId
+                    });
+                    log("fired", CFG.eventName, "eventID:", eventId);
+                } else {
+                    log("fbq not found — pixel base code missing?");
+                }
+
+                markFired();
+
+                setTimeout(function() {
+                    window.location.href = CFG.telegramLink;
+                }, CFG.redirectDelay);
+            }
+
+            function wireButtons() {
+                var buttons = document.querySelectorAll(".tg-join-btn");
+                buttons.forEach(function(btn) {
+                    btn.addEventListener("click", attemptJoin);
+                });
+                log("wired", buttons.length, "join button(s)");
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", wireButtons);
+            } else {
+                wireButtons();
+            }
+
+            window.TGTrack = {
+                attemptJoin: attemptJoin,
+                config: CFG,
+            };
+        })();
+    </script>
+
+</body>
+
+</html>
